@@ -1,9 +1,10 @@
 <template>
-  <div class="home">
-    <input type="text" v-model="search" @keyup.enter="commitSearch" />
-      <Main :searchName="search" />
+  <div class="container-fluid border bg-info">
+    <div class="row">
 
-    {{ search }}
+      <div class="col col-lg-1"></div>
+    </div>
+    <Main />
   </div>
 </template>
 
@@ -13,12 +14,6 @@ import Main from "@/components/Main.vue";
 export default {
   components: {
     Main,
-  },
-  data() {
-    return {
-      search: "spid",
-      searchList: [],
-    };
   },
 };
 </script>
