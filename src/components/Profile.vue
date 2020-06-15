@@ -12,16 +12,22 @@
       </div>
     </div>
     <div class="row">
-      <div v-for="comic in info" :key="comic.id">
+      <!-- I need to format the comics better, and make the titles stand out better with each comic. For now I'm just making every other comic a different bg color -->
+      <div
+        v-for="(comic, index) in info"
+        :key="comic.id"
+        class="col-4 text-center"
+        :class="[index % 2 === 0 ? '' : 'bg-secondary']"
+      >
         <!-- MAKE ALL OF THIS INSIDE HERE A COMPONENT Comic.vue -->
-        <p class="lead font-italic">{{ comic.title }}</p>
+        <p class="font-italic mt-2">{{ comic.title }}</p>
         <Comic
           :title="comic.title"
           :image="comic.thumbnail.path + '.' + comic.thumbnail.extension"
           :description="comic.description"
           :creators="comic.creators.items"
           :characters="comic.characters.items"
-          class="p-4"
+          class="p-3"
         />
       </div>
     </div>

@@ -1,14 +1,16 @@
 <template>
-  <div class="d-flex">
-    <div class="col-8">
-      <img :src="image" @click="fullView = !fullView" class="img-fluid" />
+  <div @click="fullView = !fullView">
+    <!-- These comics should just be converted into the bootstrap card class? -->
+    <div class=" mx-auto">
+      <img :src="image" class="img-fluid" />
     </div>
-    <div v-if="fullView" class="bg-dark text-light col">
+    <!-- When Comic is clicked, fullview is turned on or off // I want this to open up to the side of the comic -->
+    <div v-if="fullView" class="bg-dark text-light">
       <p class="lead font-italic">{{ title }}</p>
       <p>{{ description }}</p>
       <ul>
         Created by:
-        <span v-for="creator in creators" :key="creator.id">
+        <span v-for="creator in creators" :key="creator.id" class="text-left">
           <li
             v-if="
               creator.role == 'writer' ||

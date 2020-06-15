@@ -82,7 +82,7 @@ export default {
       if (this.Search) {
         axios
           .get(
-            `http://gateway.marvel.com/v1/public/characters?&nameStartsWith=${
+            `https://gateway.marvel.com/v1/public/characters?&nameStartsWith=${
               this.Search
             }&ts=1&apikey=${
               this.publicKey
@@ -92,7 +92,7 @@ export default {
       } else {
         axios
           .get(
-            `http://gateway.marvel.com/v1/public/characters?&ts=1&apikey=${
+            `https://gateway.marvel.com/v1/public/characters?&ts=1&apikey=${
               this.publicKey
             }&hash=${"4dfd3313409d3a26b9513377ea1c2698".toLowerCase()}` //store this hashcode in a variable later please
           )
@@ -109,7 +109,7 @@ export default {
         if (term) {
           axios
             .get(
-              `http://gateway.marvel.com/v1/public/characters?&nameStartsWith=${term}&ts=1&apikey=${
+              `https://gateway.marvel.com/v1/public/characters?&nameStartsWith=${term}&ts=1&apikey=${
                 this.publicKey
               }&hash=${"4dfd3313409d3a26b9513377ea1c2698".toLowerCase()}`
             )
@@ -117,7 +117,7 @@ export default {
         } else {
           axios
             .get(
-              `http://gateway.marvel.com/v1/public/characters?&ts=1&apikey=${
+              `https://gateway.marvel.com/v1/public/characters?&ts=1&apikey=${
                 this.publicKey
               }&hash=${"4dfd3313409d3a26b9513377ea1c2698".toLowerCase()}`
             )
