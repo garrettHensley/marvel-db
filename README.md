@@ -1,5 +1,5 @@
 # marveldb
-Search for your favorite Marvel characters, heroes and villians.
+Search for your favorite Marvel characters, heroes and villains.
 Try it out at https://garretthensley.github.io/marvel-db/#/
 
 ## Project setup
