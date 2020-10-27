@@ -1,8 +1,10 @@
 <template>
-	<b-jumbotron class="py-3">
-		<b-img :src="require('../assets/logo.png')" fluid />
-		<h1>Database</h1>
-	</b-jumbotron>
+	<a href="#">
+		<b-jumbotron class="py-3">
+			<b-img :src="require('../assets/logo.png')" fluid />
+			<h1>Database</h1>
+		</b-jumbotron>
+	</a>
 </template>
 
 <script>

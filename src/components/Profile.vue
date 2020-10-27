@@ -1,34 +1,28 @@
 <template>
-	<div>
-		<div class="row bg-dark text-warning py-3">
-			<div class="col d-flex justify-content-center align-items-center">
-				<div>
-					<h1 class="display-1">{{ Name }}</h1>
-				</div>
-			</div>
-			<div class="col">
-				<img :src="Pic" class="fluid img-thumbnail w-50 rounded-circle" />
-			</div>
-		</div>
+	<div id="profile">
+		<b-jumbotron
+			class="d-flex align-items-center justify-content-around rounded-0"
+		>
+			<h1 class="display-4">{{ Name }}</h1>
+
+			<img :src="Pic" class="fluid w-25 h-25 rounded" />
+		</b-jumbotron>
 		<div class="row">
 			<!-- I need to format the comics better, and make the titles stand out better with each comic. For now I'm just making every other comic a different bg color -->
-			<div
+
+			<!-- MAKE ALL OF THIS INSIDE HERE A COMPONENT Comic.vue -->
+
+			<Comic
 				v-for="(comic, index) in info"
 				:key="comic.id"
-				class="col-4 text-center"
-				:class="[index % 2 === 0 ? '' : 'bg-secondary']"
-			>
-				<!-- MAKE ALL OF THIS INSIDE HERE A COMPONENT Comic.vue -->
-				<p class="font-italic mt-2">{{ comic.title }}</p>
-				<Comic
-					:title="comic.title"
-					:image="comic.thumbnail.path + '.' + comic.thumbnail.extension"
-					:description="comic.description"
-					:creators="comic.creators.items"
-					:characters="comic.characters.items"
-					class="p-3"
-				/>
-			</div>
+				:title="comic.title"
+				:image="comic.thumbnail.path + '.' + comic.thumbnail.extension"
+				:description="comic.description"
+				:creators="comic.creators.items"
+				:characters="comic.characters.items"
+				class="p-3 text-center"
+				:class="[index % 2 === 0 ? 'bg-one' : 'bg-two']"
+			/>
 		</div>
 	</div>
 </template>
@@ -45,7 +39,7 @@ export default {
 		characterId: Number,
 		Name: String,
 		Pic: String,
-		description: String,
+		description: String, // turn all of this into a big ole object please ;)
 	},
 	data() {
 		return {
@@ -73,4 +67,35 @@ export default {
 };
 </script>
 
-<style scoped></style>
+<style scoped>
+#profile {
+	background: rgb(39, 52, 68);
+	background: linear-gradient(
+		45deg,
+		rgba(39, 52, 68, 1) 0%,
+		rgba(60, 72, 88, 1) 100%
+	);
+}
+.jumbotron {
+	background: transparent;
+}
+h1 {
+	background: -webkit-linear-gradient(#ffc82c, #ff7849);
+	-webkit-background-clip: text;
+	-webkit-text-fill-color: transparent;
+}
+.row {
+	margin-left: 0;
+	margin-right: 0;
+}
+.bg-one,
+.bg-two {
+	color: white;
+}
+.bg-one {
+	background: #273444;
+}
+.bg-two {
+	background: transparent;
+}
+</style>

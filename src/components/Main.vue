@@ -10,6 +10,15 @@
 				<b-row>
 					<b-col>
 						<b-list-group-item
+							@click="
+								(currentView = 'profileView'),
+									(selectedCharId = character.id),
+									(selectedCharName = character.name),
+									(selectedCharPic =
+										character.thumbnail.path +
+										'.' +
+										character.thumbnail.extension)
+							"
 							:style="
 								`background: url(${character.thumbnail.path}.jpg); background-size: cover; background-repeat: no-repeat; background-position-y: center`
 							"
@@ -20,7 +29,7 @@
 						</b-list-group-item>
 					</b-col>
 
-					<div class="d-flex align-items-center">
+					<!-- <div class="d-flex align-items-center">
 						<b-button
 							id="profile-button"
 							@click="
@@ -35,7 +44,7 @@
 							size="lg"
 							>Profile</b-button
 						>
-					</div>
+					</div> -->
 				</b-row>
 			</div>
 		</b-list-group>
@@ -155,10 +164,14 @@ export default {
 	border-right: none !important;
 	padding: 0 !important;
 	height: 4em;
+	cursor: pointer;
 
 	-webkit-box-shadow: 0px 0px 10px 3px rgba(0, 0, 0, 0.75);
 	-moz-box-shadow: 0px 0px 10px 3px rgba(0, 0, 0, 0.75);
 	box-shadow: 0px 0px 10px 3px rgba(0, 0, 0, 0.75);
+}
+.list-group-item:hover {
+	height: 6em;
 }
 
 #profile-button {
@@ -186,5 +199,17 @@ export default {
 .list-name span {
 	text-align: center;
 	font-size: 1.5em;
+}
+
+.btn-primary {
+	background-color: #1fb6ff !important;
+	color: #fcf9f3 !important;
+	font-weight: bolder !important; /* not sure if we want this */
+
+	border: 1px solid #8492a65e !important;
+
+	-webkit-box-shadow: 10px 10px 16px -10px rgba(0, 0, 0, 0.75) !important;
+	-moz-box-shadow: 10px 10px 16px -10px rgba(0, 0, 0, 0.75) !important;
+	box-shadow: 10px 10px 16px -10px rgba(0, 0, 0, 0.75) !important;
 }
 </style>
