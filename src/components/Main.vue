@@ -140,7 +140,6 @@ export default {
 
 	watch: {
 		// When searchName is changed update list of characters live
-
 		searchName: function() {},
 	},
 
@@ -155,7 +154,12 @@ export default {
 
 <style>
 .list-group {
-	background: #f9fafc;
+	background: rgb(39, 52, 68);
+	background: linear-gradient(
+		45deg,
+		rgba(39, 52, 68, 1) 0%,
+		rgba(60, 72, 88, 1) 100%
+	);
 }
 
 .list-group-item {
@@ -171,7 +175,7 @@ export default {
 	box-shadow: 0px 0px 10px 3px rgba(0, 0, 0, 0.75);
 }
 .list-group-item:hover {
-	height: 6em;
+	height: 8em;
 }
 
 #profile-button {
@@ -195,6 +199,9 @@ export default {
 	justify-content: center;
 	align-items: center;
 	height: 4em;
+}
+.list-name:hover {
+	height: 8em;
 }
 .list-name span {
 	text-align: center;
